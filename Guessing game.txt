@@ -1,0 +1,54 @@
+public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        int guessNumbers[] = {34,56,7,9,12,23};
+        int count =0;
+        Scanner sname = new Scanner(System.in);
+         Scanner m = new Scanner(System.in);
+        System.out.println("Hi, please enter your name to play the NUMBER GUESSING GAME!!");
+        String name = sname.nextLine();
+        
+        System.out.println("Please enter type [ OK ] to continue or [ CANCEL ] to stop to exit the game");
+        
+        String b =m.nextLine();
+        
+            String trials[]= {"1st","2nd","3rd"};
+            if(b.equalsIgnoreCase("OK")){
+                System.out.println("*******************GAME STARTED [NB: You have only 3 attempts!!]********************");
+                 System.out.println();
+            while(count < 3){
+                 System.out.println(name + ", please enter your guess number in your "+ trials[count] + " attempt to win!!");
+                int n = sc.nextInt(); 
+              
+                
+                count++;
+                while( !(n>0) || !(n<60) ){
+                     count++;
+                      if(count ==4){
+                    System.out.print("Oooops!!, " +name + ", your 3 attempts are finished, You have lost the game, Sorry!!, Goodbye");
+                     break;
+                      }
+                
+                    System.out.println("Hey!!, " +name + ", Please use  the between 1-59, PLEASE NOTE that you are on  "+ trials[count-1] + " attempt!!"); 
+                     n = sc.nextInt(); 
+                }
+               
+              
+                
+                if(count==3 && n != guessNumbers[0] && n!=guessNumbers[1]&& n!=guessNumbers[2]  &&n!=guessNumbers[3] &&n!=guessNumbers[4]  &&n!=guessNumbers[5]   ){
+                    System.out.println(name + ", your 3 attempts are finished, Sorry you have lost the game, oooops, Goodbye");
+                 break;
+                }
+                if(guessNumbers[0]==n ||guessNumbers[1]==n ||
+                    guessNumbers[2]==n ||guessNumbers[3]==n||
+                     guessNumbers[4]==n ||guessNumbers[5]==n){
+                   
+                    
+                    System.out.println("Waal!!, "+ name + ", you have won the JACKPOT in the " +trials[count-1] + " attempt, Congratulation!!!");
+                    break;
+                }
+            }
+            }
+            else if(b.equalsIgnoreCase("CANCEL")){
+                System.out.println("Goodbye, you chose to EXIT the game before you play it!!");
+            }
+               }
